@@ -1,3 +1,15 @@
+//Johnson & Johnson	
+//Pfizer	
+//GlaxoSmithKline	
+//Roche	
+//Sanofi-Aventis	
+//Novartis	
+//AstraZeneca	
+//Abbott 
+//Merck	
+//Wyeth	
+//Bristol-Myers Squibb	
+
 /**
  * csvjson.js - A script to convert between CSV and JSON formats
  * Author: Aaron Snoswell (@aaronsnoswell, elucidatedbianry.com)
@@ -224,7 +236,8 @@ function main() {
     	});
 
     	
-    	console.log("CSV -> JSON:", output_json);
+    	//console.log("CSV -> JSON:", output_json);
+    	alert(output_json);
     	
     	firma_gen();
     	

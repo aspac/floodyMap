@@ -1,26 +1,7 @@
 <html><body>
   <div id="mapdiv"></div>
   <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-  <script>
-
-    var zoom=16;
-    
-    map = new OpenLayers.Map("mapdiv");
-    map.addLayer(new OpenLayers.Layer.OSM());
- 
-    var lonLat = new OpenLayers.LonLat(112.745579,-7.26424)
-          .transform(
-            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-            map.getProjectionObject() // to Spherical Mercator Projection
-          );
- 
- 
-    var markers = new OpenLayers.Layer.Markers( "Markers" );
-    map.addLayer(markers);
- 
-    markers.addMarker(new OpenLayers.Marker(lonLat));
- 
-    map.setCenter (lonLat, zoom);
-
-  </script>
+  <script type="text/javascript" src="display.js"></script>
+  <script type="text/javascript" src="companies.js"></script>
+</script>
 </body></html>
