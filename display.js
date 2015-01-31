@@ -15,8 +15,12 @@ function displayMap() {
 	 
 	 var zoom=5;
 	 var epsg="EPSG:4326"
-	    
-	 map = new OpenLayers.Map("mapdiv");
+
+    var opt = { scales: [50000000, 30000000, 10000000, 5000000] };
+
+     //map = new OpenLayers.Map( $('map') , options);
+	  
+	 map = new OpenLayers.Map("mapdiv", opt);
 	 map.addLayer(new OpenLayers.Layer.OSM());
 	 
 	 var lonLat = new OpenLayers.LonLat(112.745579,-7.26424)
@@ -34,8 +38,7 @@ function displayMap() {
 	markers.addMarker(new OpenLayers.Marker(lonLat));
 	var sby = displayothermap()
 
-	var lonLat2 = new OpenLayers.LonLat(sby.lon,sby.lat)
-	          .transform(
+	var lonLat2 = new OpenLayers.LonLat(sby.lon,sby.lat).transform(
 	            new OpenLayers.Projection(epsg), 
 	            map.getProjectionObject() 
 	         );          

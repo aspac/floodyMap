@@ -237,7 +237,7 @@ function main() {
 
     	
     	//console.log("CSV -> JSON:", output_json);
-    	alert(output_json);
+    	//alert(output_json);
     	
     	firma_gen();
     	
