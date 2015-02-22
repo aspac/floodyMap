@@ -1,0 +1,7 @@
+bootstrap frameowork
+angular js for update background (list?)
+entity fetch name parser
+
+
+//marker with information??
+http://dev.openlayers.org/examples/osm-marker-popup.js
