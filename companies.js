@@ -1,4 +1,6 @@
 //Johnson & Johnson	
+//JnJ 1 Johnson And Johnson Plaza
+//      New Brunswick, NJ, United States
 //Pfizer	
 //GlaxoSmithKline	
 //Roche	
@@ -236,12 +238,34 @@ function main() {
     	});
 
     	
+    	
     	//console.log("CSV -> JSON:", output_json);
     	//alert(output_json);
     	
     	firma_gen();
     	
     }
+
+
+
+
+//TODO : display multiple locations
+//get from csv format
+function findlocations(compName) {
+
+    var LocS = new Object();
+
+    //ToDo : function parses the name and return location
+    // J&J : (37.565979, -101.75073)
+    LocS['lon'] = 106.8167;
+    Locs['lat'] = -6.2000;
+
+
+   return  Locs;
+
+}
+
+
 
 
 /*-----------------------
