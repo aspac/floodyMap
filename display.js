@@ -10,7 +10,7 @@
 function Main() {
 
    var pos = [];
-   var addresses  = getfoodaddress();
+   var addresses  = utilsgetfoodaddress();
 
   var element_count = 0;
   for (e in addresses) { element_count++; }     
@@ -23,7 +23,7 @@ function Main() {
 
     for (var i = 0; i < element_count; i++) {
         
-        currAddress = getAddressName(addresses, [i], 0);
+        currAddress = utilsgetAddressName(addresses, [i], 0);
         var geocoder = new google.maps.Geocoder();
   
         geocoder.geocode({'address':currAddress}, function(results, status) {
@@ -59,6 +59,8 @@ function displayMarkers(coords) {
     var graphYoffset = -12
     var restaurant_num = coords.length;
 
+    var addresses  = utilsgetfoodaddress();
+
     map = new OpenLayers.Map("mapdiv");
     map.addLayer(new OpenLayers.Layer.OSM());
     
@@ -81,7 +83,7 @@ function displayMarkers(coords) {
 
       var feature = new OpenLayers.Feature.Vector(
             new OpenLayers.Geometry.Point(coords[i].lng(), coords[i].lat() ).transform(epsg4326, projectTo),
-            {description:'elementdisplay'} ,
+            {description: utilsgetAddressName(addresses, [i], 1)} ,
             {externalGraphic: 'img/marker.png', graphicHeight: grapHeight, graphicWidth: graphWidth, graphicXOffset: graphXoffset, graphicYOffset: graphYoffset  }
         );    
 
@@ -122,25 +124,6 @@ function displayMarkers(coords) {
 
 }
 
-//--------------------------------------------------
-// Function listing the address of restaurant
-// as is defined by the user input
-// TODO : hook with user triggered input
-// @param :     void ...... 
-// @return                
-//--------------------------------------------------
-function getfoodaddress(){
-
-var addresses = new Object();
-
-addresses["Kertajaya No.210 Gubeng, Kota SBY, Jawa Tim. 60282"] = "Ayam goreng Jakarta 01";
-addresses["Kusuma Bangsa No.85 Genteng, Kota SBY, Jawa Tim. 60273"] = "Ayam goreng Jakarta 02";
-addresses["Pemuda No.38 Genteng, Kota SBY, Jawa Tim. 60271"] = "Ayam goreng Pemuda";
-addresses["Mayjen Sungkono No.32 Dukuh Pakis, Kota SBY, Jawa Tim. 60225"] = "Ayam Goreng Pemuda Sungkono";
-addresses["Sriwijaya No.30 Tegalsari, Kota SBY, Jawa Tim. 60265"] = "Ayam Goreng Sriwijaya"
-
-return addresses;
-}
 
 
 /*===========================================================
@@ -158,7 +141,7 @@ return addresses;
 // @return                
 //--------------------------------------------------
 
-function getAddressName(o, idx, type){
+function utilsgetAddressName(o, idx, type){
   var out = '';
   var ctr = 0;
  
@@ -184,3 +167,24 @@ function getAddressName(o, idx, type){
 
 }
 
+//--------------------------------------------------
+// Function listing the address of restaurant
+// as is defined by the user input
+// TODO : hook with user triggered input
+// @param :     void ...... 
+// @return                
+//--------------------------------------------------
+function utilsgetfoodaddress(){
+
+var addresses = new Object();
+
+addresses["Kertajaya No.210 Gubeng, Kota SBY, Jawa Tim. 60282"] = "Ayam goreng Jakarta 01";
+addresses["Kusuma Bangsa No.85 Genteng, Kota SBY, Jawa Tim. 60273"] = "Ayam goreng Jakarta 02";
+addresses["Pemuda No.38 Genteng, Kota SBY, Jawa Tim. 60271"] = "Ayam goreng Pemuda";
+addresses["Mayjen Sungkono No.32 Dukuh Pakis, Kota SBY, Jawa Tim. 60225"] = "Ayam Goreng Pemuda Sungkono";
+addresses["Sriwijaya No.30 Tegalsari, Kota SBY, Jawa Tim. 60265"] = "Ayam Goreng Sriwijaya 01";
+addresses["Raya Jemursari No.84 Tenggilis Mejoyo, Kota SBY, Jawa Tim. 60239"] = "Ayam Goreng Sriwijaya 01";
+addresses["Raya Nginden No.48 Gubeng, Kota SBY, Jawa Tim. 60284, Indonesia"] = "Family Cafe"
+
+return addresses;
+}
