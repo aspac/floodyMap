@@ -12,15 +12,18 @@ function Main() {
    var pos = [];
    var addresses  = getfoodaddress();
 
-
-   if (addresses == undefined || addresses.length == 0) {
+  var element_count = 0;
+  for (e in addresses) { element_count++; }     
+   
+   
+   if (addresses == undefined || element_count == 0) {
       alert("No address defined!");
       return;
    }
 
-    for (var i = 0; i < addresses.length; i++) {
+    for (var i = 0; i < element_count; i++) {
         
-        currAddress = addresses[i];
+        currAddress = getAddressName(addresses, [i], 0);
         var geocoder = new google.maps.Geocoder();
   
         geocoder.geocode({'address':currAddress}, function(results, status) {
@@ -30,7 +33,7 @@ function Main() {
                     //var longitude = results[0].geometry.location.lng();
 
                     pos.push(results[0].geometry.location);
-                    if (pos.length == addresses.length) {
+                    if (pos.length == element_count) {
                        displayMarkers(pos);
                     }
                 }
@@ -47,8 +50,6 @@ function Main() {
 //--------------------------------------------------
 
 function displayMarkers(coords) {
-
-  alert("HLLO MARKERS");
   
     var zoom=11;
 
@@ -130,22 +131,56 @@ function displayMarkers(coords) {
 //--------------------------------------------------
 function getfoodaddress(){
 
-// restaurants in surabaya.. !
-var addresses  = ["Kertajaya 210", "Kusuma Bangsa 85", 
-"Tidar 3", "Kapas Krampung 238", "Jemursari 84", "Embong Malang I No. 78"];
-return addresses;
+var addresses = new Object();
 
+addresses["Kertajaya No.210 Gubeng, Kota SBY, Jawa Tim. 60282"] = "Ayam goreng Jakarta 01";
+addresses["Kusuma Bangsa No.85 Genteng, Kota SBY, Jawa Tim. 60273"] = "Ayam goreng Jakarta 02";
+addresses["Pemuda No.38 Genteng, Kota SBY, Jawa Tim. 60271"] = "Ayam goreng Pemuda";
+addresses["Mayjen Sungkono No.32 Dukuh Pakis, Kota SBY, Jawa Tim. 60225"] = "Ayam Goreng Pemuda Sungkono";
+addresses["Sriwijaya No.30 Tegalsari, Kota SBY, Jawa Tim. 60265"] = "Ayam Goreng Sriwijaya"
+
+return addresses;
 }
 
+
+/*===========================================================
+// 
+//                        UTILS 
+//
+*===========================================================*/
+
 //--------------------------------------------------
-// Function mapping the address with the element 
-// @param :     void ...... 
+// Function that returns address or name of place
+//          depending on the caller
+// @param :     o       ...... address object
+//              idx     ...... iteration index
+//              type    ...... 0 for address, 1 for name             
 // @return                
 //--------------------------------------------------
-function getelementaddress(){
 
-// restaurants in surabaya.. !
-var addresses  = ["Kertajaya 210", "Kusuma Bangsa 85", 
-"Tidar 3", "Kapas Krampung 238", "Jemursari 84", "Embong Malang I No. 78"];
-return addresses;
+function getAddressName(o, idx, type){
+  var out = '';
+  var ctr = 0;
+ 
+  var is_address = 0;
+
+
+   for (var p in o) {
+    
+    //out += p + '\n';
+    if (idx == ctr) {
+       if (is_address == type) {
+        out += p;
+        } else {
+        out += o[p];
+        }
+       break;
+    }
+
+    ctr++;
+  }
+
+  return out;
+
 }
+
