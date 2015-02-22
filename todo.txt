@@ -5,3 +5,5 @@ entity fetch name parser
 
 //marker with information??
 http://dev.openlayers.org/examples/osm-marker-popup.js
+
+u'GorengJakarta\r\nJl.Kertajaya210\r\nTelp.5664640\n\n\n'
