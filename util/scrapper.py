@@ -13,9 +13,16 @@ import csv
 #        : path ... path to write
 # @return : void
 #---------------------------------------------------------
-def csv_writer(data, path):
+def csv_writer(path):
     
-  print "TODO"
+  try:
+      c = csv.writer(open(path, "wb"))
+  except:
+      print "creating writer on path %s fails", path
+      exit(1)
+      
+  return c
+
   
 #---------------------------------------------------------
 # Function to get the Name of element and Address of the element 
@@ -53,7 +60,7 @@ def get_Address(element, is_type):
 #  @return 
 #---------------------------------------------------------
 
-def print_URL(url):
+def print_URL(url, path):
     
     print "Fetching Content"
     
@@ -63,11 +70,17 @@ def print_URL(url):
         exit(1)
         
     i = 0
+    #last data to be fetched to csvdata_vin
+    data_str = ""
+    #type of element to be fetched
     is_elmtname = 0
     is_addrname = 1
     
-    #last data to be fetched to csvdata_vin
-    data_vin = []
+    
+   
+    c = csv_writer(path)
+    if c:
+      c.writerow(["ElementName","ElementAddress"])      
             
     data = r.text
     friedrice = BeautifulSoup(data)
@@ -97,17 +110,19 @@ def print_URL(url):
         address = get_Address(third, is_addrname)
         address = address+ "Surabaya"
         #print "address is", address
-        data_vin.append(real_name)
-        data_vin.append(",")
-        data_vin.append(address)
-        data_vin.append("\n")
         
-    return data_vin     
+        data_str = data_str+real_name+","+address+"\n"
+        c.writerow([real_name,address])
+        
+    return     
         
 
 
 if __name__ == "__main__":
-    path = "/opt/gitrepo/repo1/floodyMap/result.csv"
-    data = print_URL("www.surabaya.go.id/eng/tourism.php?page=restoran")
     
-    csv_writer(data, path)
+    url = "www.surabaya.go.id/eng/tourism.php?page=restoran"
+    path = "/opt/gitrepo/repo1/floodyMap/util/result.csv"
+     
+    print_URL(url, path)
+    
+    
