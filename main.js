@@ -7,7 +7,7 @@
 // @return                
 //--------------------------------------------------
 function Main() {
-  utilsreadTextFile("http://localhost:8000/result.csv");
+   utilsreadTextFile("http://localhost:8000/result.csv");
 } 
 
 
@@ -23,40 +23,35 @@ function displayPopupDummy(coords){
   var graphXoffset = -12
   var graphYoffset = -12
   var restaurant_num = coords.length;
-  
-    epsg4326 =  new OpenLayers.Projection("EPSG:4326"); //WGS 1984 projection
-    projectTo = map.getProjectionObject(); //The map projection (Spherical Mercator)
-    
-    var lonLat = new OpenLayers.LonLat( -0.1279688 ,51.5077286 ).transform(epsg4326, projectTo);
-           //set center of the map
-           SbyLatitude= -7.2491700  
-           SbyLongitude=  112.7508300
-           
-           var centerlonlat = new OpenLayers.LonLat(SbyLongitude, SbyLatitude).transform(epsg4326, projectTo);
-           map.setCenter (centerlonlat, zoom);
 
-           var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
-           
-    // Define markers as "features" of the vector layer:
+  epsg4326 =  new OpenLayers.Projection("EPSG:4326"); //WGS 1984 projection
+  projectTo = map.getProjectionObject(); //The map projection (Spherical Mercator)
 
-    
 
-    for (var i = 0; i < restaurant_num; i++) {
+  //set center of the map
+  SbyLatitude= -7.2491700  
+  SbyLongitude=  112.7508300
 
-      var feature = new OpenLayers.Feature.Vector(
-        new OpenLayers.Geometry.Point(coords[i].lng(), coords[i].lat() ).transform(epsg4326, projectTo),
-        {description: 'This is the value of<br>the description attribute'} ,
-        {externalGraphic: 'img/marker.png', graphicHeight: grapHeight, graphicWidth: graphWidth, graphicXOffset: graphXoffset, graphicYOffset: graphYoffset  }
-        );    
+  var centerlonlat = new OpenLayers.LonLat(SbyLongitude, SbyLatitude).transform(epsg4326, projectTo);
+  map.setCenter (centerlonlat, zoom);
 
-      vectorLayer.addFeatures(feature);
-    }
+  var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+
+
+  for (var i = 0; i < restaurant_num; i++) {
+
+    var feature = new OpenLayers.Feature.Vector(
+      new OpenLayers.Geometry.Point(coords[i].lng(), coords[i].lat() ).transform(epsg4326, projectTo),
+      {description: 'This is the value of<br>the description attribute'} ,
+      {externalGraphic: 'img/marker.png', graphicHeight: grapHeight, graphicWidth: graphWidth, graphicXOffset: graphXoffset, graphicYOffset: graphYoffset  }
+      );    
+
+    vectorLayer.addFeatures(feature);
+  }
 
     
     map.addLayer(vectorLayer);
-    
-    
-    //Add a selector control to the vectorLayer with popup functions
+
     var controls = {
       selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
     };
@@ -70,7 +65,6 @@ function displayPopupDummy(coords){
         true,
         function() { controls['selector'].unselectAll(); }
         );
-      //feature.popup.closeOnMove = true;
       map.addPopup(feature.popup);
     }
 
@@ -81,7 +75,7 @@ function displayPopupDummy(coords){
     
     map.addControl(controls['selector']);
     controls['selector'].activate();
-    
+
   }
 
 /*===========================================================
@@ -111,25 +105,23 @@ http://jsfiddle.net/vHKYH/
 */
 function processData(str){
 
-  alert("PROC>ESS DAFTA")
+  alert("..sPROCESSING DATA..")
+
   var arr = [];
-    var quote = false;  // true means we're inside a quoted field
+  var quote = false; 
 
-    for (var row = col = c = 0; c < str.length; c++) {
-        var cc = str[c], nc = str[c+1];        // current character, next character
-        arr[row] = arr[row] || [];             // create a new row if necessary
-        arr[row][col] = arr[row][col] || '';   // create a new column (start with empty string) if necessary
+  for (var row = col = c = 0; c < str.length; c++) {
+      var cc = str[c], nc = str[c+1];        // current character, next character
+      arr[row] = arr[row] || [];             // create a new row if necessary
+      arr[row][col] = arr[row][col] || '';   // create a new column (start with empty string) if necessary
 
-        if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }  
-        if (cc == '"') { quote = !quote; continue; }
-        if (cc == ',' && !quote) { ++col; continue; }
-        if (cc == '\n' && !quote) { ++row; col = 0; continue; }
+      if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }  
+      if (cc == '"') { quote = !quote; continue; }
+      if (cc == ',' && !quote) { ++col; continue; }
+      if (cc == '\n' && !quote) { ++row; col = 0; continue; }
 
-        arr[row][col] += cc;
-      }
-
-
-   //var addresses  = utilsgetfoodaddress();
+      arr[row][col] += cc;
+    }
 
    if (arr.length == 0) {
     alert("No address defined!");
@@ -139,36 +131,48 @@ function processData(str){
   var last_arr = arr.length;
   last_arr -=1;
   var pos = [];
-
-  for (var i = 1; i < 3; i++) {
+  
+  var back = 0;
+  alert("START..")
+  while (back != 1) {
+    back = utilsrequestcoord(arr, last_arr, pos);
+  }
+  alert("DONE ..")
+  
+  /*
+  for (var i = 1; i < last_arr; i++) {
 
     var currAddress = arr[i];
     var currAddress = currAddress[1]
     
-    sleep(1000);  
+    sleep(200);  
     var geocoder = new google.maps.Geocoder();
     //alert("got currAddress of " +currAddress)
 
     geocoder.geocode({'address':currAddress}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-
         //debug: 
         //alert("debug!")
         //alert(results[0].geometry.location.lat());
         //var longitude = results[0].geometry.location.lng();
         pos.push(results[0].geometry.location);
-        if (pos.length == 2) {
+        if (pos.length == 5) {
           alert("display Dummy!!!!!!")
           //displayMarkers(pos);
           displayPopupDummy(pos);
         } 
       } 
       else {
-        alert("hickup status from GOOGLE " + status)
+        alert("hickup status from GOOGLE " + status + "where request is " + i)
+        return;
       }
     });
   }
+  */
 }
+
+
+
 
 //--------------------------------------------------
 // Function that returns address or name of place
@@ -218,24 +222,37 @@ function sleep(milliseconds) {
   }
 }
 
-//--------------------------------------------------
-// Function listing the address of restaurant
-// as is defined by the user input
-// TODO : hook with user triggered input
-// @param :     void ...... 
-// @return                
-//--------------------------------------------------
-function utilsgetfoodaddress(){
 
-  var addresses = new Object();
+function utilsrequestcoord(arr, last_arr, pos){
 
-  addresses["Kertajaya No.210 Gubeng, Kota SBY, Jawa Tim. 60282"] = "Ayam goreng Jakarta 01";
-  addresses["Kusuma Bangsa No.85 Genteng, Kota SBY, Jawa Tim. 60273"] = "Ayam goreng Jakarta 02";
-  addresses["Pemuda No.38 Genteng, Kota SBY, Jawa Tim. 60271"] = "Ayam goreng Pemuda";
-  addresses["Mayjen Sungkono No.32 Dukuh Pakis, Kota SBY, Jawa Tim. 60225"] = "Ayam Goreng Pemuda Sungkono";
-  addresses["Sriwijaya No.30 Tegalsari, Kota SBY, Jawa Tim. 60265"] = "Ayam Goreng Sriwijaya 01";
-  addresses["Raya Jemursari No.84 Tenggilis Mejoyo, Kota SBY, Jawa Tim. 60239"] = "Ayam Goreng Sriwijaya 01";
-  addresses["Raya Nginden No.48 Gubeng, Kota SBY, Jawa Tim. 60284, Indonesia"] = "Family Cafe"
+   var back = 0;
+   for (var i = 1; i < last_arr; i++) {
 
-  return addresses;
+    var currAddress = arr[i];
+    var currAddress = currAddress[1]
+    
+    var geocoder = new google.maps.Geocoder();
+    //alert("got currAddress of " +currAddress)
+    sleep(1500);
+    geocoder.geocode({'address':currAddress}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        //debug: 
+        //alert("debug!")
+        //alert(results[0].geometry.location.lat());
+        //var longitude = results[0].geometry.location.lng();
+        pos.push(results[0].geometry.location);
+        if (pos.length == 6) {
+          //displayMarkers(pos);
+          displayPopupDummy(pos);
+        } 
+      } 
+      else {
+        //alert("hickup status from GOOGLE " + status + "where request is " + i)
+        sleep(2000);
+      }
+    });
+  }
+   
+  back = 1;
+  return back;
 }

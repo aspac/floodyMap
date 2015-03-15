@@ -3,7 +3,10 @@
 # scrapper
 
 from bs4 import BeautifulSoup
+from geopy.geocoders import Nominatim
+
 import requests
+import time
 import re
 import csv
 
@@ -23,6 +26,92 @@ def csv_writer(path):
       
   return c
 
+def csv_rewrite(path, lon, lat):
+     
+  with open(path,'r') as csvinput:
+    with open('result_latlon.csv','w') as csvoutput:
+        writer = csv.writer(csvoutput, lineterminator='\n')
+        reader = csv.reader(csvinput)
+
+        all = []
+        row = next(reader)
+        
+        row.append(lon)
+        row.append(lat)
+        
+        all.append(row)
+
+        for row in reader:
+            row.append(row[0])
+            all.append(row)
+
+        writer.writerows(all)
+
+     
+
+#---------------------------------------------------------
+# Function to read csv file
+#  @param  : path ....    CSV file to be parsed
+#  @return 
+#---------------------------------------------------------
+def csv_reader(path):
+    
+    
+  try:
+      c = csv.reader(open(path))
+  except:
+      print "open path [%s] fails" %path
+      exit(1)
+
+  return c  
+
+
+#---------------------------------------------------------
+# Function to read csv file
+#  @param  : path ....    CSV file to be parsed
+#  @return 
+#---------------------------------------------------------
+def csv_geocode(csvobj, path):
+    
+  try:
+      geolocator = Nominatim()
+  except:
+       print "can not create geolocator"
+       exit(1)
+       
+  i = 0  
+  
+  print "start geocoding"
+  
+  for row in csvobj:
+      #print "check for i of %d where address is %s.." %(i,row[1])
+    
+      location = ""
+      e=""
+      address = "Jl." +row[1] +",Jawa Timur,Indonesia"
+     
+      try:
+          location = geolocator.geocode(address)
+      except Exception, e:
+         print 'My exception occurred, value:', e
+         
+      time.sleep(2)
+      #once again..
+      if e and e== "Service timed out":
+          time.sleep(1)
+          location = geolocator.geocode(address)
+      
+      if location:
+          print "OK for i of ", i
+          csv_rewrite(path, location.latitude, location.longitude)
+      else:
+          csv_rewrite(path, 0, 0)
+          
+      i+=1
+      
+  print "geocoding done.."
+ 
+  return
   
 #---------------------------------------------------------
 # Function to get the Name of element and Address of the element 
@@ -108,21 +197,25 @@ def print_URL(url, path):
         real_name = ''.join(real_name.splitlines())
         
         address = get_Address(third, is_addrname)
-        address = address+ "Surabaya"
+        #address = address+ "Surabaya"
         #print "address is", address
         
         data_str = data_str+real_name+","+address+"\n"
         c.writerow([real_name,address])
         
     return     
-        
+
 
 
 if __name__ == "__main__":
     
     url = "www.surabaya.go.id/eng/tourism.php?page=restoran"
     path = "/opt/gitrepo/repo1/floodyMap/util/result.csv"
-     
-    print_URL(url, path)
+
+        
+    #print_URL(url, path)
+    c = csv_reader(path)
+    csv_geocode(c, path)
     
     
+       
