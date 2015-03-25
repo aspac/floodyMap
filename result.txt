@@ -1,0 +1,116 @@
+ElementName,ElementAddress,Latitude,Longitude
+Ayam Goreng Jakarta ,Kertajaya 210 ,112.7598549,-7.279391
+Ayam Goreng Jakarta ,Kusuma Bangsa 85 ,112.74999,-7.249301000000001
+Ayam Goreng Jakarta ,Tidar 3 1 ,112.732943,-7.258006
+Ayam Goreng Jakarta ,Kapas Krampung 238 ,112.766789,-7.250972
+Ayam Goreng Jakarta ,Raya Mulyasari 119 ,112.7455788,-7.2642396
+Ayam Goreng Jakarta ,Manyar 84 ,112.7619257,-7.298019200000001
+Ayam Goreng Pemuda ,Pemuda 38 ,112.745312,-7.2644239
+Ayam Goreng Pemuda Sungkono ,Mayjen Sungkono 32 B ,112.7116906,-7.2896841
+Ayam Goreng Sriwijaya ,Sriwijaya 30 32 ,112.7418518,-7.2798421
+Ayam Goreng Sriwijaya ,Jemursari 84 ,112.7541594,-7.315535000000001
+Ayam Bakar wong Solo ,Mayjen Sungkono 158 ,112.7112726,-7.289552699999999
+Family Cafe ,Raya Nginden 48 ,112.76191,-7.302737
+Forum,Margorejo Indah 128 130 ,112.7426465,-7.318127899999999
+Halim ,Kertajaya III ,112.750685,-7.2771199
+Halim ,Mayjen Sungkono 216 ,112.7086588,-7.288699800000001
+Handayani Garden ,Raya Prapen 35 ,112.7560032,-7.3131386
+Handayani Garden ,Kertajaya 42 ,112.751873,-7.277847
+Ikan Bakar Cianjur ,Mayjen Sungkono 206 208 ,112.7086588,-7.288699800000001
+Ikan Bakar Cianjur ,Manyar Kertoarjo V 44 46 48 ,112.76626,-7.280248999999999
+Ikan Bakar Cianjur ,Indragiri 23 ,112.73163,-7.2902029
+Ria,Kombes M Duryat 7 ,112.738925,-7.268072
+Ria Food Garden ,Mayjen Sungkono Bundaran Tol ,112.7455788,-7.2642396
+Soto Ayam Sadi Asli cabang ,BarataJaya XIX 91 ,112.759218,-7.304498000000001
+Soto Ayam Ambengan Sadi Asli ,Ambengan 3 A ,112.7448999,-7.255596000000001
+Ulam,Kombes M Duryat 1 5 ,112.7410019,-7.269365
+Venesia Cafe ,Ambengan 16 ,112.74658,-7.2560289
+Medan,Kedungsari 19 A ,112.735461,-7.268300999999999
+Mahkota,TAIS Nasution 23 25 ,112.744543,-7.26872
+Podo Trino ,Tambak Langon 2 4 ,112.664663,-7.225187000000001
+Antika I ,Kranggan 23 25 ,112.733544,-7.256024
+Antika II ,Dupak 1 ,112.7226855,-7.2336092
+Bambooden,Diponegoro 219 ,112.729572,-7.2792339
+Biyung,Raya Gubeng 44 ,112.748327,-7.271776000000001
+Sari Bundo 1 ,Walikota Mustajab ,112.7467901,-7.260698899999999
+Sari Bundo 2 ,Ngagel Jaya Selatan 155 ,112.760108,-7.29339
+Sari Bundo 3 ,Mayjen Sungkono 77 ,112.7115015,-7.2896248
+Sari Bundo 4 ,Jemur Handayani 3 ,112.740041,-7.333259900000001
+New Antika ,Raya Darmo I ,112.741541,-7.277958
+Taman Sari Indah ,Taman Apsari 3 5 ,112.7432486,-7.264482200000001
+Hanamasa ,Gubeng Pojok 31 ,112.7514119,-7.265846900000001
+Bima,Mayjen Sungkono 212 214 ,112.7086588,-7.288699800000001
+Jumbo Seafood ,Graha Wirasuka Kompi Kodikal AAI ,112.7455788,-7.2642396
+Sea Master ,Mayjen Sungkono bundaran tol ,112.7455788,-7.2642396
+Top Noodle House ,Manyar Kertoarjo V 43 47 ,112.7683569,-7.279806
+Tristar Internasional ,Pasar Besar Wetan 14 18 ,112.741547,-7.247152000000001
+Yobel,Raya Mulyasari 105 ,112.7455788,-7.2642396
+Yobel,HR Muhammad ,112.695017,-7.285127399999999
+Yobel,Mayjen Sungkono food garden ,112.7455788,-7.2642396
+Yobel,Dharmahusada Indah Timur 37 ,112.7819099,-7.276091999999999
+Mie Gili ,Jemursari 23 ,112.733581,-7.327382999999999
+Mie Gili ,Darmo Park I Blok IV 3 4 ,112.718336,-7.31265
+Nur Pacific ,Adityawarman 59 63 5683381 ,112.730495,-7.293878899999999
+Nur Pacific ,Raya Gubeng 37 ,112.747857,-7.272813999999999
+Oriental,TAIS Nasution 37 ,112.743279,-7.26756
+MING GARDEN ,H R Muhammad 19 ,112.792282,-7.239577
+California Fried Chicken ,Pucang Anom Timur 48 ,112.758646,-7.2866809
+California Fried Chicken ,Baratajaya XIX 99 ,112.759151,-7.3049759
+California Fried Chicken ,Darmo Indah Timur ss 5 ,112.6842488,-7.2640411
+California Fried Chicken ,Dharmahusada Timur 37 Galaxy Mall ,112.7808,-7.277349999999999
+California Fried Chicken ,Dharmahusada Indah 106 ,112.7809512,-7.2707854
+California Fried Chicken ,Basuki Rahmad 8 12 TP III ,112.7455788,-7.2642396
+California Fried Chicken ,M Sungkono Darmo Park II 17 8 ,112.7175516,-7.291294600000001
+California Fried Chicken ,Pemuda 31 37 Plasa Sby ,112.748752,-7.2651978
+California Fried Chicken ,Ngagel Jaya Selatan RMI Blok B 23 24 ,112.760656,-7.294727
+California Fried Chicken ,R A Kartini 150 152 ,112.729695,-7.277692999999998
+Dundee Fried Chiken ,Basuki Rahmad TP III Lt 5 ,112.7455788,-7.2642396
+Dundee Fried Chicken ,Pemuda 31 37 Plasa Suarabaya ,112.748752,-7.2651978
+Dunkin Donnut ,Basuki Rahmad 8 12x Plasa Surabaya ,112.7408033,-7.2630303
+Dunkin Donnut ,Tunjungan 9 ,112.73712,-7.257031
+Dunkin Donnut ,Galaxy Mall Lt dasar ,112.7455788,-7.2642396
+Dunkin Donnut ,Basuki Rahmad 79 81 ,112.7412864,-7.267828799999999
+Dunkin Donnut ,Basuki Rahmad TP I Lt 1 ,112.7455788,-7.2642396
+Dunkin Donnut ,A Yani 191 ,112.729209,-7.337989299999999
+Dunkin Donnut ,Jemur Andayani ,112.739704,-7.328499300000001
+Dunkin Donnut ,Darmo Park II ,112.6996871,-7.280163099999998
+Dunkin Donnut ,Baluran ,112.7336829,-7.257319799999999
+Dunkin Donnut ,Gunungsari ,112.7204323,-7.3070771
+Dunkin Donnut ,A Yani Alfa ,112.7455788,-7.2642396
+Texas Fried Chicken ,Basuki Rahmad TP TG 02 08 ,112.7455788,-7.2642396
+Texas Fried Chicken ,Pemuda 31 37 Plasa Surabaya ,112.748752,-7.2651978
+Texas Fried Chicken ,Basuki Rahmad TP III ,112.7455788,-7.2642396
+Kentucky Fried Chicken ,Basuki Rahmad 16 18 ,112.7407103,-7.2646499
+Kentucky Fried Chicken ,Jemursari 71 ,112.739461,-7.322540999999999
+Kentucky Fried Chicken ,Basuki Rahmad 8 12 BBD ,112.7455788,-7.2642396
+Kentucky Fried Chicken ,Pemuda 31 37 Plasa Surabaya ,112.748752,-7.2651978
+Kentucky Fried Chicken ,Jayengrono 2 JMP Lt 3 ,112.7455788,-7.2642396
+Kentucky Fried Chicken ,Basuki Rahmad 8 12 TP ,112.7455788,-7.2642396
+Kentucky Fried Chicken ,Kusuma Bangsa 1169 THR Mall ,112.7505931,-7.2523465
+Kentucky Fried Chicken ,Dharmahusada Timur 37 Galaxy Mall ,112.7808,-7.277349999999999
+Kentucky Fried Chicken ,Raya Darmo 101 ,112.739303,-7.2895099
+Mc. Donald ,Jayengrono JMP A 1 2 21 2 ,112.7455788,-7.2642396
+Mc. Donald ,Pemuda 31 37 Plasa Surabaya ,112.748752,-7.2651978
+Mc. Donald ,Basuki Rahmad TP I Lt 1 ,112.7455788,-7.2642396
+Mc. Donald ,Basuki Rahmad TP III Lt 5 ,112.7455788,-7.2642396
+Mc. Donald ,Mayjen Sungkono 153 ,112.7063,-7.288688
+Mc. Donald ,Raya Darmo 43 ,112.7407168,-7.2821896
+Mc.Donald,Basuki Rahmad ,112.7411778,-7.267186099999999
+Pizza Hut ,Dharmahusada Timur Galaxy Mall ,112.7808,-7.277349999999999
+Pizza Hut ,Basuki Rahmad 8 12 TP I Lt 5 ,112.7455788,-7.2642396
+Pizza Hut ,Jemursari 136 ,112.7541186,-7.3155689
+Pizza Hut ,Camal I ,112.7219883,-7.169895100000001
+Kartikasari Pujasera ,Diponegoro 56 ,112.733205,-7.282973999999999
+Kartikasari Pujasera ,Manyar Kertoarjo 23 25 ,112.766604,-7.279599999999999
+Arby's,Jemursari 86 ,112.7436387,-7.3219959
+Arby's ,Pemuda 31 37 Plasa Surabaya ,112.748752,-7.2651978
+Arby's ,Raya Gubeng 33 ,112.7489369,-7.272133
+Granada Bakery ,Pemuda 44 ,112.745797,-7.264711999999999
+Kartikasari,A Yani 24 B ,112.7291983,-7.3381813
+Depot 369 ,Darmo Park II Blok VI 26 27 ,112.6996871,-7.280163099999998
+Depot 369 ,Manyar Kertoarjo V 16 ,112.765714,-7.277565
+Depot 369 ,,112.6179486,-7.965944100000001
+Depot 369 TP I Lt 5 ,Basuki Rahmad 8 12 ,112.7408033,-7.2630303
+Depot 369 ,Pemuda 33 3 Surabaya Plasa Lt c1 ,112.748752,-7.2651978
+Depot 369 ,Ngagel Jaya Selatan MMI Plasa A 10 ,112.760304,-7.294026
+Depot 369 ,Jayengrono JMP III Blok A ,112.7183536,-7.293936800000001
