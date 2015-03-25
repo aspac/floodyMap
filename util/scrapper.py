@@ -8,6 +8,7 @@ from geopy.geocoders import GoogleV3
 import requests
 import time
 import re
+import os
 import csv
 
 
@@ -61,6 +62,7 @@ def csv_geocode(reader, writer):
                 "Latitude", "Longitude"])
 
     print(("start geocoding..."))
+    
     i = 0
     for row in reader:
         print(("check for i of %d where address is %s.." % (i, row[1])))
@@ -196,10 +198,18 @@ def print_URL(url, path):
 if __name__ == "__main__":
 
     url = "www.surabaya.go.id/eng/tourism.php?page=restoran"
-    path = "/home/arif/SourceCode/floodyMap/util/result.csv"
-    path2 = "/home/arif/SourceCode/floodyMap/util/result_latlon.csv"
+    current_pw = os.getcwd()
 
+    path = current_pw + "/result.csv"
+    path2 = current_pw + "/result_latlon.csv"
+    
     print_URL(url, path)
     reader = csv_reader(path)
+    if not reader:
+        exit(1)
+
     writer = csv_writer(path2)
+    if not writer:
+        exit(1)
+
     csv_geocode(reader, writer)
