@@ -24,4 +24,7 @@ Grabthe code, go to ../floodymap/
 
 open the URL of http://localhost:8000/surabayarestaurant.html
 
+Image snippet :
+https://raw.githubusercontent.com/dansat/floodyMap/master/img/surabayarestaurant.png
+
 
